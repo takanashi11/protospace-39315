@@ -1,4 +1,6 @@
-class CreateUsers < ActiveRecord::Migration[6.0]
+# frozen_string_literal: true
+
+class DeviseCreateUsers < ActiveRecord::Migration[6.0]
   def change
     create_table :users do |t|
       t.string :email ,                 null: false, unique:true
@@ -7,7 +9,7 @@ class CreateUsers < ActiveRecord::Migration[6.0]
       t.text   :profile,                null: false
       t.text   :occupation,             null: false
       t.text   :position,               null: false
-      t.timestamps
+      t.timestamps null: false
     end
   end
 end
