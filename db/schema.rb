@@ -10,6 +10,40 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 0) do
+ActiveRecord::Schema.define(version: 2023_05_19_050617) do
 
+  create_table "comments", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8mb4", force: :cascade do |t|
+    t.text "content", null: false
+    t.bigint "prototype_id", null: false
+    t.bigint "user_id", null: false
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+    t.index ["prototype_id"], name: "index_comments_on_prototype_id"
+    t.index ["user_id"], name: "index_comments_on_user_id"
+  end
+
+  create_table "prototypes", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8mb4", force: :cascade do |t|
+    t.string "title", null: false
+    t.text "catch_copy", null: false
+    t.text "concept", null: false
+    t.bigint "user_id", null: false
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+    t.index ["user_id"], name: "index_prototypes_on_user_id"
+  end
+
+  create_table "users", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8mb4", force: :cascade do |t|
+    t.string "email", null: false
+    t.string "encrypted_password", null: false
+    t.string "name", null: false
+    t.text "profile", null: false
+    t.text "occupation", null: false
+    t.text "position", null: false
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+  end
+
+  add_foreign_key "comments", "prototypes"
+  add_foreign_key "comments", "users"
+  add_foreign_key "prototypes", "users"
 end
