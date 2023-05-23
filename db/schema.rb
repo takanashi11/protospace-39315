@@ -43,6 +43,16 @@ ActiveRecord::Schema.define(version: 2023_05_23_054339) do
     t.index ["user_id"], name: "index_prototypes_on_user_id"
   end
 
+  create_table "prototyps", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
+    t.string "title", null: false
+    t.text "catch_copy", null: false
+    t.text "concept", null: false
+    t.bigint "user_id", null: false
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+    t.index ["user_id"], name: "index_prototyps_on_user_id"
+  end
+
   create_table "users", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
     t.string "email", default: "", null: false
     t.string "encrypted_password", default: "", null: false
