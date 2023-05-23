@@ -6,4 +6,7 @@ class User < ApplicationRecord
 
   validates :email, presence: true #メールアドレスが空だとエラーにさせる
   validates :encrypted_password, presence: true #パスワードが空だとエラーにさせる
+
+  has_many :prototyps
+  
 end
