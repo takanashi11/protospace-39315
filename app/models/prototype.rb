@@ -1,4 +1,4 @@
-class Prototyp < ApplicationRecord
+class Prototype < ApplicationRecord
   belongs_to :user
   has_one_attached :image
 
