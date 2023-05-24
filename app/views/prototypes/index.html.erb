@@ -4,7 +4,7 @@
     <% if @current_user %>
       <div class="greeting">
         <%= "こんにちは、" %>
-         <%= link_to "#{current_user.name}さん", root_path, class: :greeting__link%>
+         <%= link_to "#{current_user.name}さん",user_path(current_user.id), class: :greeting__link%>
          <% else %>
         <p>ようこそゲストさん</p>
     <% end %>
