@@ -8,5 +8,6 @@ class User < ApplicationRecord
   validates :encrypted_password, presence: true #パスワードが空だとエラーにさせる
 
   has_many :prototyps
+  has_many :comments, dependent: :destroy # commentsテーブルとのアソシエーション
   
 end
