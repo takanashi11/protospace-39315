@@ -40,6 +40,7 @@
             <div class="actions">
               <%= f.submit "SEND", class: :form__btn  %>
             </div>
+        <% end %>
           <% end %>
           <ul class="comments_lists">
             <% @comments.each do |comment| %>
@@ -49,7 +50,7 @@
               </li>
             <% end %>
           </ul>
-        <% end %>
+        
       </div>
     </div>
   </div>
